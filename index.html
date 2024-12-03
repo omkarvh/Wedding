@@ -27,6 +27,24 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+
+
+    <audio id="background-music" loop autoplay>
+        <source src="audio\Ullam-Paadum.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+      </audio>
+
+
+      <button id="mute-button">Mute</button>
+
+
+
+
+
+
+
+
+
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
@@ -54,6 +72,8 @@
         </div>
     </nav>
     <!-- Navbar End -->
+
+
 
 
 <!-- Carousel Start -->
@@ -366,6 +386,18 @@ videoModal.addEventListener("hidden.bs.modal", () => {
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
+                    <div class="position-relative mb-2">
+                        <img class="img-fluid w-100" src="img/groomsmen-7.jpg" alt="">
+                        <div class="bg-secondary text-center p-4">
+                            <h4 class="mb-3">Satakshi</h4>
+                            <p class="text-uppercase">Cousin</p>
+
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
                     <div class="position-relative mb-2">
                         <img class="img-fluid w-100" src="img/groomsmen-2.jpg" alt="">
@@ -557,6 +589,29 @@ videoModal.addEventListener("hidden.bs.modal", () => {
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+<script>
+    const music = document.getElementById('background-music');
+const muteButton = document.getElementById('mute-button');
+
+// Toggle mute/unmute
+muteButton.addEventListener('click', () => {
+  if (music.muted) {
+    music.muted = false;
+    muteButton.textContent = 'Mute';
+  } else {
+    music.muted = true;
+    muteButton.textContent = 'Unmute';
+  }
+});
+
+// Start music muted for a user-friendly experience if desired
+// Uncomment the following line to do so
+// music.muted = true;
+
+</script>
+
+
 
 
     <!-- JavaScript Libraries -->
