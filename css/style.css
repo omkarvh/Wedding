@@ -9777,7 +9777,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: fixed; /* Ensures the button stays in the same spot */
     /* Adjust to your preference */
   bottom: 20px;
-  right: 20px;     /* Adjust to your preference */
+  left: 20px;     /* Adjust to your preference */
   z-index: 1000;   /* Keeps it above other elements */
   padding: 10px 20px;
   background-color: #007BFF;
@@ -9789,4 +9789,48 @@ a.text-dark:hover, a.text-dark:focus {
 
 #mute-button:hover {
   background-color: #0056b3;
+}
+/* pop up message */
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 10;
+  text-align: center;
+  width: 300px;
+}
+#popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#popup .save {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+#popup .exit {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 5;
 }

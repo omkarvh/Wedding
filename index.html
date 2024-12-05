@@ -29,15 +29,12 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
 
 
-    <audio id="background-music" loop autoplay>
-        <source src="audio/Ullam-Paadum.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-      </audio>
-
-
-      <button id="mute-button">Mute</button>
-
-
+    <div id="popup">
+        <p>Save the date: 25th December 2024, 9:00 AM to your calendar!</p>
+        <button class="save" onclick="downloadCalendar()">Save</button>
+        <button class="exit" onclick="closePopup()">Exit</button>
+    </div>
+    <div id="overlay"></div>
 
 
 
@@ -105,6 +102,10 @@
                         <button type="button" class="btn-play mx-auto" data-toggle="modal" data-target="#videoModal">
                             <span>▶</span>
                         </button>
+
+                        <div class="countdown mt-5" id="countdown">
+                            Loading countdown...
+                        </div>
                     </div>
                 </div>
             </div>
@@ -147,24 +148,7 @@
 
 
 
-<!-- JavaScript -->
-<script>
-// Automatically play video when the modal opens
-const videoModal = document.getElementById("videoModal");
-const videoPlayer = document.getElementById("videoPlayer");
 
-videoModal.addEventListener("shown.bs.modal", () => {
-    videoPlayer.play();
-});
-
-// Pause video when the modal is closed
-videoModal.addEventListener("hidden.bs.modal", () => {
-    videoPlayer.pause();
-    videoPlayer.currentTime = 0; // Reset video to start
-});
-
-
-</script>
 
 
 
@@ -251,7 +235,7 @@ videoModal.addEventListener("hidden.bs.modal", () => {
                     <div class="col-md-6 text-center text-md-left">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
                             <h4 class="mb-2">Proposal</h4>
-                            <p class="text-uppercase mb-2">26 Jan 2024</p>
+                            <p class="text-uppercase mb-2">26 Jun 2024</p>
                             <p class="m-0">It was a moment straight out of a dream. With our hearts already entwined, the time felt right to take the next big step. Surrounded by love and anticipation, I expressed what I had felt from the very beginning—that she is the one I want to spend my life with. Her smile said it all before her words did, and in that magical moment, our journey of forever truly began.</p>
                         </div>
                     </div>
@@ -339,10 +323,46 @@ videoModal.addEventListener("hidden.bs.modal", () => {
             <div class="row">
                 <div class="col-md-6 border-right border-primary">
                     <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
+                        <img class="img-fluid mb-4" src="img/event-3.jpg" alt="">
+                        <h4 class="mb-3">Mehendi</h4>
+                        <p class="mb-2">#9-12-365/A VNC Bidar, KA, India</p>
+                        <p class="mb-0">23 Dec 2024</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center text-md-left ml-md-3">
+                        <img class="img-fluid mb-4" src="img/event-4.jpg" alt="">
+                        <h4 class="mb-3">Bangel ceremony</h4>
+                        <p class="mb-2">#9-12-365/A VNC Bidar, KA, India</p>
+                        <p class="mb-0">23 Dec 2024</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 border-right border-primary">
+                    <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
+                        <img class="img-fluid mb-4" src="img/event-5.jpg" alt="">
+                        <h4 class="mb-3">Haldi</h4>
+                        <p class="mb-2">#9-12-365/A VNC Bidar, KA, India</p>
+                        <p class="mb-0">24 Dec 2024</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center text-md-left ml-md-3">
+                        <img class="img-fluid mb-4" src="img/event-6.jpg" alt="">
+                        <h4 class="mb-3">Sangeet</h4>
+                        <p class="mb-2">Ghale Luxury Function Hall</p>
+                        <p class="mb-0">25 Dec 2024</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 border-right border-primary">
+                    <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
                         <img class="img-fluid mb-4" src="img/event-1.jpg" alt="">
                         <h4 class="mb-3">Bhasunki</h4>
                         <p class="mb-2">#9-12-365/A VNC Bidar, KA, India</p>
-                        <p class="mb-0">12:00AM - 13:00PM</p>
+                        <p class="mb-0">24 Dec 2024</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -350,7 +370,7 @@ videoModal.addEventListener("hidden.bs.modal", () => {
                         <img class="img-fluid mb-4" src="img/event-2.jpg" alt="">
                         <h4 class="mb-3">Wedding Party</h4>
                         <p class="mb-2">Ghale Luxury Function Hall</p>
-                        <p class="mb-0">12:00AM - 13:00PM</p>
+                        <p class="mb-0">25 Dec 2024</p>
                     </div>
                 </div>
             </div>

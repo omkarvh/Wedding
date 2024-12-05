@@ -1,3 +1,56 @@
+        // Show popup after 5 seconds
+        window.onload = function () {
+            setTimeout(() => {
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
+            }, 5000);
+        };
+
+        // Close the popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        // Download calendar event
+        function downloadCalendar() {
+            const title = "Omkar Wedding Celebration";
+            const description = "Omkar Wedding celebration is today wake up muhurtam time is 11:00 AM";
+            const location = "Ghale Function Hall";
+            const startDate = "20241225T090000";
+            const endDate = "20241225T100000";
+
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${title}
+DESCRIPTION:${description}
+LOCATION:${location}
+DTSTART:${startDate}
+DTEND:${endDate}
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: "text/calendar" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "event.ics";
+            link.click();
+
+            // Close popup after download
+            closePopup();
+        }
+
+
+
+
+
+
+
+
+
+
+
 (function ($) {
     "use strict";
 
@@ -25,24 +78,6 @@
                 $(this).closest('a').addClass('active');
             }
         }
-    });
-
-
-    // Modal Video
-    $(document).ready(function () {
-        var $videoSrc;
-        $('.btn-play').click(function () {
-            $videoSrc = $(this).data("src");
-        });
-        console.log($videoSrc);
-
-        $('#videoModal').on('shown.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
-
-        $('#videoModal').on('hide.bs.modal', function (e) {
-            $("#video").attr('src', $videoSrc);
-        })
     });
 
 
@@ -114,4 +149,45 @@
     });
     
 })(jQuery);
+
+// Automatically play video when the modal opens
+const videoModal = document.getElementById("videoModal");
+const videoPlayer = document.getElementById("videoPlayer");
+
+videoModal.addEventListener("shown.bs.modal", () => {
+    videoPlayer.play();
+});
+
+// Pause video when the modal is closed
+videoModal.addEventListener("hidden.bs.modal", () => {
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0; // Reset video to start
+});
+
+
+//count down timer
+
+function updateCountdown() {
+    const targetDate = new Date("December 25, 2024 11:00:00").getTime();
+    const currentTime = new Date().getTime();
+    const timeLeft = targetDate - currentTime;
+
+    if (timeLeft <= 0) {
+        document.getElementById("countdown").innerHTML = "The time has arrived!";
+        clearInterval(timer);
+        return;
+    }
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = `
+        ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds
+    `;
+}
+
+const timer = setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call to display immediately
 
