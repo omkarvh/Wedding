@@ -1,9 +1,9 @@
-        // Show popup after 5 seconds
+// Show popup after 5 seconds
         window.onload = function () {
             setTimeout(() => {
                 document.getElementById("popup").style.display = "block";
                 document.getElementById("overlay").style.display = "block";
-            }, 5000);
+            }, 15000);
         };
 
         // Close the popup
