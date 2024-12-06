@@ -9844,3 +9844,11 @@ a.text-dark:hover, a.text-dark:focus {
     right: 20px; /* Distance from the right */
     z-index: 1000; /* Ensure it stays on top */
   }
+
+  .countdown{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color:var(--red);
+    height: fit-content;
+  }
